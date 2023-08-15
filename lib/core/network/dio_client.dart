@@ -14,8 +14,8 @@ class DioClient {
   DioClient() {
     dio
       ..options.baseUrl = ApiUrls.baseUrl
-      ..options.connectTimeout = MyDurations.s30
-      ..options.receiveTimeout = MyDurations.s30
+      ..options.connectTimeout = MyDurations.d1
+      ..options.receiveTimeout = MyDurations.d1
       ..options.responseType = ResponseType.json
       ..interceptors.add(DioInterceptor());
   }

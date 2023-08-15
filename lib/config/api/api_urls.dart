@@ -8,7 +8,7 @@ class ApiUrls {
   ///
   /// Base
   ///
-  static final baseUrl = '$https${env.url}';
+  static final baseUrl = '$https${env.url}$b';
 
   static const https = 'https://';
   static const b = '/b/';
@@ -16,6 +16,6 @@ class ApiUrls {
   ///
   /// Endpoint
   ///
-  static const days = '92TT';
-  static const types = 'I86U';
+  static const calendar = '92TT';
+  static const dayTypes = 'I86U';
 }

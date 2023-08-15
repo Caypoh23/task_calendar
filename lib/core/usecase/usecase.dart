@@ -1,14 +1,15 @@
 // Package imports:
+import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 // Project imports:
-import 'package:task_calendar/core/network/api_result.dart';
+import 'package:task_calendar/core/error/failures.dart';
 
 abstract class UseCase<Type, Params> {
-  Future<ApiResult<Type>> call(Params params);
+  Future<Either<Failure, Type>> call(Params params);
 }
 
 class NoParams extends Equatable {
   @override
-  List<Object?> get props => [];
+  List<Object> get props => [];
 }
