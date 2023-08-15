@@ -1,9 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:task_calendar/config/formatters/date_formatter.dart';
 
 // Project imports:
+import 'package:task_calendar/config/formatters/date_formatter.dart';
 import 'app.dart';
 import 'config/enums/environment_enum.dart';
 import 'config/values/system_ui_overlay_styles.dart';

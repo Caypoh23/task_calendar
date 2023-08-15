@@ -2,7 +2,6 @@
 import 'dart:async';
 
 // Package imports:
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -34,8 +33,7 @@ class TaskCalendarBloc extends Bloc<TaskCalendarEvent, TaskCalendarState> {
       TaskCalendarEvent event, Emitter<TaskCalendarState> emit) async {
     try {
       emit(const TaskCalendarLoading());
-      Either<Failure, CalendarEntity> calendar =
-          await sl<FetchCalendarUseCase>().call(NoParams());
+      final calendar = await sl<FetchCalendarUseCase>().call(NoParams());
 
       calendar.fold(
         (failure) => throw _getFailureAndThrowExpection(failure),
@@ -50,8 +48,7 @@ class TaskCalendarBloc extends Bloc<TaskCalendarEvent, TaskCalendarState> {
       TaskCalendarEvent event, Emitter<TaskCalendarState> emit) async {
     try {
       emit(const TaskCalendarLoading());
-      Either<Failure, List<DayTypeEntity>> dayTypes =
-          await sl<FetchDayTypeUseCase>().call(NoParams());
+      final dayTypes = await sl<FetchDayTypeUseCase>().call(NoParams());
 
       dayTypes.fold(
         (failure) => throw _getFailureAndThrowExpection(failure),

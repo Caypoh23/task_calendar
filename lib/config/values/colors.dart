@@ -47,11 +47,11 @@ class MyColors {
   static const blackA10 = Color(0x1A000000);
 
   // Neutral
-  static const neutral = Color(0xFF707D9F);
-  static const neutralA50 = Color(0x80707D9F);
-  static const neutralA30 = Color(0x4D707D9F);
-  static const neutralA20 = Color(0x44707D9F);
-  static const neutralA10 = Color(0x1A707D9F);
+  static const neutral = Color(0xFF6C7072);
+  static const neutralA50 = Color(0x806C7072);
+  static const neutralA30 = Color(0x4D6C7072);
+  static const neutralA20 = Color(0x446C7072);
+  static const neutralA10 = Color(0x1A6C7072);
 
   // NeutralVariant 1
   static const neutralVariant1 = Color(0xFFF4F5F7);
@@ -68,11 +68,11 @@ class MyColors {
   static const neutralVariant2A10 = Color(0x1AFAFAFB);
 
   //! Red
-  static const red = Color(0xFFEB5757);
-  static const redA50 = Color(0x80EB5757);
-  static const redA30 = Color(0x4DEB5757);
-  static const redA20 = Color(0x44EB5757);
-  static const redA10 = Color(0x1AEB5757);
+  static const red = Color(0xFFFF5247);
+  static const redA50 = Color(0x80FF5247);
+  static const redA30 = Color(0x4DFF5247);
+  static const redA20 = Color(0x44FF5247);
+  static const redA10 = Color(0x1AFF5247);
 
   //? Blue
   static const blue = Color(0xFF1A73E9);
@@ -119,6 +119,13 @@ class MyColors {
     final green = ((finalHash & 0xFF));
     final color = Color.fromRGBO(red, green, blue, 1);
     return color;
+  }
+
+  static Color colorFromHex(String? hexColor) {
+    if (hexColor == null || hexColor.isEmpty) return Colors.white;
+
+    final hexCode = hexColor.replaceAll('#', '');
+    return Color(int.parse('FF$hexCode', radix: 16));
   }
 
   static LinearGradient gradientColorFromText(String text) {

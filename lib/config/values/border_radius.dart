@@ -17,6 +17,7 @@ class MyBorderRadius {
   static const allRounded28 = BorderRadius.all(Radius.circular(28));
   static const allRounded48 = BorderRadius.all(Radius.circular(48));
   static const allRounded64 = BorderRadius.all(Radius.circular(64));
+  static const allRounded80 = BorderRadius.all(Radius.circular(80));
   static const allRounded90 = BorderRadius.all(Radius.circular(90));
   static const allRounded100 = BorderRadius.all(Radius.circular(100));
 

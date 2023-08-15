@@ -113,12 +113,13 @@ class __$$_CalendarEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CalendarEntity implements _CalendarEntity {
+class _$_CalendarEntity extends _CalendarEntity {
   const _$_CalendarEntity(
       {required this.month,
       required this.year,
       required final List<DayEntity> days})
-      : _days = days;
+      : _days = days,
+        super._();
 
   @override
   final String month;
@@ -158,11 +159,12 @@ class _$_CalendarEntity implements _CalendarEntity {
       __$$_CalendarEntityCopyWithImpl<_$_CalendarEntity>(this, _$identity);
 }
 
-abstract class _CalendarEntity implements CalendarEntity {
+abstract class _CalendarEntity extends CalendarEntity {
   const factory _CalendarEntity(
       {required final String month,
       required final int year,
       required final List<DayEntity> days}) = _$_CalendarEntity;
+  const _CalendarEntity._() : super._();
 
   @override
   String get month;

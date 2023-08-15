@@ -14,12 +14,12 @@ class MyDateFormatter {
 
   static String format(DateTime? date, String newPattern) {
     if (date == null) return '';
-    return DateFormat(newPattern, 'ru').format(date);
+    return DateFormat(newPattern, 'en').format(date);
   }
 
   static DateTime? parse(String? date, String newPattern) {
     if (date == null || date == '') return null;
-    return DateFormat(newPattern, 'ru').parse(date);
+    return DateFormat(newPattern, 'en').parse(date);
   }
 
   ///

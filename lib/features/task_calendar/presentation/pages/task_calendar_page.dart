@@ -6,13 +6,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
-import 'package:task_calendar/config/theme/inkwell/inkwell.dart';
-import 'package:task_calendar/config/theme/text/text16/text_16_medium.dart';
 import 'package:task_calendar/config/values/colors.dart';
-import 'package:task_calendar/config/values/edge_insets.dart';
-import 'package:task_calendar/config/values/spaces.dart';
 import 'package:task_calendar/core/di/service_locator.dart';
 import 'package:task_calendar/features/task_calendar/presentation/bloc/task_calendar_bloc.dart';
+import 'package:task_calendar/features/task_calendar/presentation/widgets/content.dart';
 
 @RoutePage()
 class TaskCalendarPage extends StatefulWidget {
@@ -24,48 +21,15 @@ class TaskCalendarPage extends StatefulWidget {
 
 class _TaskCalendarPageState extends State<TaskCalendarPage> {
   //
-
   @override
   Widget build(BuildContext context) {
     final bloc = sl<TaskCalendarBloc>();
 
     return BlocProvider(
       create: (_) => bloc,
-      child: Scaffold(
-        body: BlocBuilder<TaskCalendarBloc, TaskCalendarState>(
-          builder: (context, state) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyInkWell(
-                    padding: MyEdgeInsets.all12,
-                    color: MyColors.black,
-                    onTap: () {
-                      bloc.add(const FetchCalendar());
-                    },
-                    child: const MyText16m(
-                      'Fetch Calendar',
-                      color: MyColors.white,
-                    ),
-                  ),
-                  MySpaces.v16,
-                  MyInkWell(
-                    padding: MyEdgeInsets.all12,
-                    color: MyColors.black,
-                    onTap: () {
-                      bloc.add(const FetchDayType());
-                    },
-                    child: const MyText16m(
-                      'Fetch DayType',
-                      color: MyColors.white,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
+      child: const Scaffold(
+        body: TaskCalendarContent(),
+        backgroundColor: MyColors.white,
       ),
     );
   }
