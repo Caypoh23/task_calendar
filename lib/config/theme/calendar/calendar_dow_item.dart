@@ -15,7 +15,6 @@ class MyCalendarDOWItem extends StatelessWidget {
     return Center(
       child: MyText14(
         MyDateFormatter.fEEE(date),
-        toUpperCase: true,
         color: MyColors.neutral,
       ),
     );

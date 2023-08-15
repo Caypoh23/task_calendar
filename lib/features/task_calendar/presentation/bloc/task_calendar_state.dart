@@ -27,7 +27,7 @@ class TaskCalendarState with _$TaskCalendarState {
   const factory TaskCalendarState.dayTypeLoading() = TaskCalendarDayTypeLoading;
 
   const factory TaskCalendarState.dayTypeLoaded(
-      {required List<DayTypeEntity> dayTypes}) = TaskCalendarDayTypeLoaded;
+      {required Map<int, String> dayTypes}) = TaskCalendarDayTypeLoaded;
 
   const factory TaskCalendarState.dayTypeError({required String message}) =
       TaskCalendarDayTypeError;

@@ -11,7 +11,7 @@ import 'package:task_calendar/features/task_calendar/data/models/day_type/day_ty
 
 abstract class TaskCalendarRemoteDataSource {
   Future<Calendar> fetchCalendar();
-  Future<List<DayType>> fetchDayTypes();
+  Future<Map<int, String>> fetchDayTypes();
 }
 
 @LazySingleton(as: TaskCalendarRemoteDataSource)
@@ -31,12 +31,14 @@ class TaskCalendarRemoteDataSourceImpl implements TaskCalendarRemoteDataSource {
   }
 
   @override
-  Future<List<DayType>> fetchDayTypes() async {
+  Future<Map<int, String>> fetchDayTypes() async {
     final response = await dioClient.dio.get(ApiUrls.dayTypes);
 
     if (response.statusCode == 200) {
       final List<dynamic> jsonData = response.data;
-      return jsonData.map((data) => DayType.fromJson(data)).toList();
+      final list = jsonData.map((data) => DayType.fromJson(data)).toList();
+      final itemById = {for (DayType i in list) i.type: i.color};
+      return itemById;
     } else {
       throw ServerException();
     }

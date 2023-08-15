@@ -14,7 +14,7 @@ class Day with _$Day {
   //
   factory Day({
     required int day,
-    @DayTypeConverter() required DayType type,
+    required int type,
   }) = _Day;
   //
   factory Day.fromJson(Map<String, dynamic> json) => _$DayFromJson(json);

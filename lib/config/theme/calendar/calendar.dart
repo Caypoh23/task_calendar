@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import 'package:table_calendar/table_calendar.dart';
-import 'package:task_calendar/config/theme/container/container.dart';
 import 'package:task_calendar/config/theme/container/empty_container.dart';
-import 'package:task_calendar/config/values/border_radius.dart';
 import 'package:task_calendar/config/values/colors.dart';
 import 'package:task_calendar/config/values/edge_insets.dart';
 import 'package:task_calendar/core/helpers/date_helper.dart';
@@ -62,11 +60,13 @@ class MyCalendar extends StatelessWidget {
         },
         prioritizedBuilder: (_, dt, dt2) {
           final date = DateTime(dt.year, dt.month, dt.day);
+          final isCurrentMonth = date.month == dt2.month;
           final color = MyColors.colorFromHex(colorByDates[date]);
 
           return MyCalendarItem(
             date: date,
             color: color,
+            isCurrentMonth: isCurrentMonth,
           );
         },
       ),

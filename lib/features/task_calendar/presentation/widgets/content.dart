@@ -6,11 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_calendar/config/theme/calendar/calendar.dart';
 
 // Project imports:
-import 'package:task_calendar/config/values/colors.dart';
 import 'package:task_calendar/config/values/edge_insets.dart';
-import 'package:task_calendar/core/helpers/date_helper.dart';
 import 'package:task_calendar/features/task_calendar/presentation/bloc/task_calendar_bloc.dart';
-import 'package:task_calendar/features/task_calendar/presentation/widgets/date_selector/date_selector.dart';
 
 class TaskCalendarContent extends StatelessWidget {
   //
@@ -31,7 +28,7 @@ class TaskCalendarContent extends StatelessWidget {
               Padding(
                 padding: MyEdgeInsets.h16,
                 child: MyCalendar(
-                  colorByDates: state.calendar.colorByDate,
+                  colorByDates: const {},
                   firstDay: state.calendar.firstDate,
                   specialDays: state.calendar.dates,
                 ),

@@ -13,7 +13,6 @@ import 'package:task_calendar/core/error/failures.dart';
 import 'package:task_calendar/core/usecase/usecase.dart';
 import 'package:task_calendar/features/task_calendar/data/models/day/day.dart';
 import 'package:task_calendar/features/task_calendar/domain/entities/calendar_entity.dart';
-import 'package:task_calendar/features/task_calendar/domain/entities/day_type_entity.dart';
 import 'package:task_calendar/features/task_calendar/domain/usecases/fetch_calendar_usecase.dart';
 import 'package:task_calendar/features/task_calendar/domain/usecases/fetch_day_type_usecase.dart';
 

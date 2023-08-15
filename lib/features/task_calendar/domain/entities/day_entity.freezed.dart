@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DayEntity {
   int get day => throw _privateConstructorUsedError;
-  DayType get type => throw _privateConstructorUsedError;
+  int get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DayEntityCopyWith<DayEntity> get copyWith =>
@@ -29,9 +29,7 @@ abstract class $DayEntityCopyWith<$Res> {
   factory $DayEntityCopyWith(DayEntity value, $Res Function(DayEntity) then) =
       _$DayEntityCopyWithImpl<$Res, DayEntity>;
   @useResult
-  $Res call({int day, DayType type});
-
-  $DayTypeCopyWith<$Res> get type;
+  $Res call({int day, int type});
 }
 
 /// @nodoc
@@ -58,16 +56,8 @@ class _$DayEntityCopyWithImpl<$Res, $Val extends DayEntity>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as DayType,
+              as int,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $DayTypeCopyWith<$Res> get type {
-    return $DayTypeCopyWith<$Res>(_value.type, (value) {
-      return _then(_value.copyWith(type: value) as $Val);
-    });
   }
 }
 
@@ -78,10 +68,7 @@ abstract class _$$_DayEntityCopyWith<$Res> implements $DayEntityCopyWith<$Res> {
       __$$_DayEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int day, DayType type});
-
-  @override
-  $DayTypeCopyWith<$Res> get type;
+  $Res call({int day, int type});
 }
 
 /// @nodoc
@@ -106,7 +93,7 @@ class __$$_DayEntityCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as DayType,
+              as int,
     ));
   }
 }
@@ -119,7 +106,7 @@ class _$_DayEntity implements _DayEntity {
   @override
   final int day;
   @override
-  final DayType type;
+  final int type;
 
   @override
   String toString() {
@@ -146,13 +133,13 @@ class _$_DayEntity implements _DayEntity {
 }
 
 abstract class _DayEntity implements DayEntity {
-  const factory _DayEntity(
-      {required final int day, required final DayType type}) = _$_DayEntity;
+  const factory _DayEntity({required final int day, required final int type}) =
+      _$_DayEntity;
 
   @override
   int get day;
   @override
-  DayType get type;
+  int get type;
   @override
   @JsonKey(ignore: true)
   _$$_DayEntityCopyWith<_$_DayEntity> get copyWith =>

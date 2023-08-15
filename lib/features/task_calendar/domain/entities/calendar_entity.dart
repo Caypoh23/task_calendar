@@ -20,12 +20,11 @@ class CalendarEntity with _$CalendarEntity {
   List<DateTime> get dates =>
       days.map((e) => DateTime(year, int.parse(month), e.day)).toList();
 
-// make map from dates and color that in DayEntity > DayType > color
-  Map<DateTime, String> get colorByDate => Map.fromEntries(
+  Map<DateTime, int> get typeByDates => Map.fromEntries(
         days.map(
           (e) => MapEntry(
             DateTime(year, int.parse(month), e.day),
-            e.type.color,
+            e.type,
           ),
         ),
       );

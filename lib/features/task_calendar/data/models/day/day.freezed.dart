@@ -21,8 +21,7 @@ Day _$DayFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Day {
   int get day => throw _privateConstructorUsedError;
-  @DayTypeConverter()
-  DayType get type => throw _privateConstructorUsedError;
+  int get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,9 +33,7 @@ abstract class $DayCopyWith<$Res> {
   factory $DayCopyWith(Day value, $Res Function(Day) then) =
       _$DayCopyWithImpl<$Res, Day>;
   @useResult
-  $Res call({int day, @DayTypeConverter() DayType type});
-
-  $DayTypeCopyWith<$Res> get type;
+  $Res call({int day, int type});
 }
 
 /// @nodoc
@@ -62,16 +59,8 @@ class _$DayCopyWithImpl<$Res, $Val extends Day> implements $DayCopyWith<$Res> {
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as DayType,
+              as int,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $DayTypeCopyWith<$Res> get type {
-    return $DayTypeCopyWith<$Res>(_value.type, (value) {
-      return _then(_value.copyWith(type: value) as $Val);
-    });
   }
 }
 
@@ -81,10 +70,7 @@ abstract class _$$_DayCopyWith<$Res> implements $DayCopyWith<$Res> {
       __$$_DayCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int day, @DayTypeConverter() DayType type});
-
-  @override
-  $DayTypeCopyWith<$Res> get type;
+  $Res call({int day, int type});
 }
 
 /// @nodoc
@@ -107,7 +93,7 @@ class __$$_DayCopyWithImpl<$Res> extends _$DayCopyWithImpl<$Res, _$_Day>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as DayType,
+              as int,
     ));
   }
 }
@@ -115,15 +101,14 @@ class __$$_DayCopyWithImpl<$Res> extends _$DayCopyWithImpl<$Res, _$_Day>
 /// @nodoc
 @JsonSerializable()
 class _$_Day implements _Day {
-  _$_Day({required this.day, @DayTypeConverter() required this.type});
+  _$_Day({required this.day, required this.type});
 
   factory _$_Day.fromJson(Map<String, dynamic> json) => _$$_DayFromJson(json);
 
   @override
   final int day;
   @override
-  @DayTypeConverter()
-  final DayType type;
+  final int type;
 
   @override
   String toString() {
@@ -158,17 +143,14 @@ class _$_Day implements _Day {
 }
 
 abstract class _Day implements Day {
-  factory _Day(
-      {required final int day,
-      @DayTypeConverter() required final DayType type}) = _$_Day;
+  factory _Day({required final int day, required final int type}) = _$_Day;
 
   factory _Day.fromJson(Map<String, dynamic> json) = _$_Day.fromJson;
 
   @override
   int get day;
   @override
-  @DayTypeConverter()
-  DayType get type;
+  int get type;
   @override
   @JsonKey(ignore: true)
   _$$_DayCopyWith<_$_Day> get copyWith => throw _privateConstructorUsedError;
