@@ -9,10 +9,16 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Package imports:
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+// Project imports:
 import '../../config/router/navigator_service.dart' as _i4;
+import '../helpers/network_info.dart' as _i5;
+import '../network/dio_client.dart' as _i3;
+
 import '../../features/task_calendar/data/datasources/task_calendar_remote_data_source.dart'
     as _i7;
 import '../../features/task_calendar/data/repositories/task_calendar_repository_impl.dart'
@@ -25,8 +31,6 @@ import '../../features/task_calendar/domain/usecases/fetch_day_type_usecase.dart
     as _i11;
 import '../../features/task_calendar/presentation/bloc/task_calendar_bloc.dart'
     as _i6;
-import '../helpers/network_info.dart' as _i5;
-import '../network/dio_client.dart' as _i3;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt

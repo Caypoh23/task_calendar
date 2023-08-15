@@ -7,5 +7,5 @@ class TaskCalendarEvent with _$TaskCalendarEvent {
   const factory TaskCalendarEvent.fetchCalendar() = FetchCalendar;
   const factory TaskCalendarEvent.fetchDayType() = FetchDayType;
 
-  const factory TaskCalendarEvent.selectDay(Day day) = SelectDay;
+  const factory TaskCalendarEvent.selectDay(DayEntity day) = SelectDay;
 }
