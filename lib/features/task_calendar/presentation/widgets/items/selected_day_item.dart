@@ -20,12 +20,12 @@ class TaskCalendarSelectedDayItem extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            MyText14m('Selected Day'),
-            MySpaces.v16,
             if (state is TaskCalendarSelectedDay) ...[
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  MyText14m('Selected Day'),
+                  MySpaces.v16,
                   MyText14m(
                     'Day: ${state.selectedDay.day}',
                     color: MyColors.black,

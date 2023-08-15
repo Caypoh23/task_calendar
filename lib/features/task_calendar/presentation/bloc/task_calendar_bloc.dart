@@ -52,13 +52,23 @@ class TaskCalendarBloc extends Bloc<TaskCalendarEvent, TaskCalendarState> {
 
   FutureOr<void> _selectDayEvent(
       SelectDay event, Emitter<TaskCalendarState> emit) async {
+    final currentState = state;
+    if (currentState is TaskCalendarLoaded) {
+      emit(
+        TaskCalendarLoaded(
+          calendar: currentState.calendar,
+          dayTypes: currentState.dayTypes,
+        ),
+      );
+    }
+
     emit(TaskCalendarSelectedDay(selectedDay: event.day));
   }
 
-  Exception _getFailureAndThrowExpection(Failure l) {
-    if (l is ServerFailure) {
+  Exception _getFailureAndThrowExpection(Failure failure) {
+    if (failure is ServerFailure) {
       return ServerException();
-    } else if (l is CacheFailure) {
+    } else if (failure is CacheFailure) {
       return CacheException();
     } else {
       return UnknownException();

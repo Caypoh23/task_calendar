@@ -69,7 +69,7 @@ class _TaskCalendarContentState extends State<TaskCalendarContent> {
   }
 
   void _fetchCalendar() {
-    BlocProvider.of<TaskCalendarBloc>(context).add(const FetchCalendar());
+    context.read<TaskCalendarBloc>().add(FetchCalendar());
   }
 
   void _handleDaySelected(DayEntity day) {
