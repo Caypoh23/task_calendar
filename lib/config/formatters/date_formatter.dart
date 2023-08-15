@@ -1,4 +1,5 @@
 // Package imports:
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 // Project imports:
@@ -6,6 +7,10 @@ import 'package:task_calendar/config/values/date_formats.dart';
 
 class MyDateFormatter {
   MyDateFormatter._();
+
+  static init() {
+    initializeDateFormatting();
+  }
 
   static String format(DateTime? date, String newPattern) {
     if (date == null) return '';

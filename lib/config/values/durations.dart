@@ -21,6 +21,8 @@ class MyDurations {
   static const s10 = Duration(seconds: 10);
   static const s30 = Duration(seconds: 30);
 
+  static const m1 = Duration(minutes: 1);
+
   static const h1 = Duration(hours: 1);
   static const h2 = Duration(hours: 2);
   static const h3 = Duration(hours: 3);

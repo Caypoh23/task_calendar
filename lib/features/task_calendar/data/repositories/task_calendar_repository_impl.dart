@@ -36,11 +36,11 @@ class TaskCalendarRepositoryImpl implements TaskCalendarRepository {
   }
 
   @override
-  Future<Either<Failure, DayTypeEntity>> fetchDayType() async {
+  Future<Either<Failure, List<DayTypeEntity>>> fetchDayType() async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteDayType = await remoteDataSource.fetchDayType();
-        return Right(remoteDayType.toEntity());
+        final remoteDayType = await remoteDataSource.fetchDayTypes();
+        return Right(remoteDayType.map((e) => e.toEntity()).toList());
       } on ServerException {
         return Left(ServerFailure());
       }

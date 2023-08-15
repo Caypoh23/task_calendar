@@ -21,7 +21,7 @@ mixin _$TaskCalendarEvent {
     required TResult Function() started,
     required TResult Function() fetchCalendar,
     required TResult Function() fetchDayType,
-    required TResult Function(DateTime date) selectDay,
+    required TResult Function(Day day) selectDay,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$TaskCalendarEvent {
     TResult? Function()? started,
     TResult? Function()? fetchCalendar,
     TResult? Function()? fetchDayType,
-    TResult? Function(DateTime date)? selectDay,
+    TResult? Function(Day day)? selectDay,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$TaskCalendarEvent {
     TResult Function()? started,
     TResult Function()? fetchCalendar,
     TResult Function()? fetchDayType,
-    TResult Function(DateTime date)? selectDay,
+    TResult Function(Day day)? selectDay,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function() fetchCalendar,
     required TResult Function() fetchDayType,
-    required TResult Function(DateTime date) selectDay,
+    required TResult Function(Day day) selectDay,
   }) {
     return started();
   }
@@ -137,7 +137,7 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function()? fetchCalendar,
     TResult? Function()? fetchDayType,
-    TResult? Function(DateTime date)? selectDay,
+    TResult? Function(Day day)? selectDay,
   }) {
     return started?.call();
   }
@@ -148,7 +148,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function()? fetchCalendar,
     TResult Function()? fetchDayType,
-    TResult Function(DateTime date)? selectDay,
+    TResult Function(Day day)? selectDay,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -240,7 +240,7 @@ class _$FetchCalendar implements FetchCalendar {
     required TResult Function() started,
     required TResult Function() fetchCalendar,
     required TResult Function() fetchDayType,
-    required TResult Function(DateTime date) selectDay,
+    required TResult Function(Day day) selectDay,
   }) {
     return fetchCalendar();
   }
@@ -251,7 +251,7 @@ class _$FetchCalendar implements FetchCalendar {
     TResult? Function()? started,
     TResult? Function()? fetchCalendar,
     TResult? Function()? fetchDayType,
-    TResult? Function(DateTime date)? selectDay,
+    TResult? Function(Day day)? selectDay,
   }) {
     return fetchCalendar?.call();
   }
@@ -262,7 +262,7 @@ class _$FetchCalendar implements FetchCalendar {
     TResult Function()? started,
     TResult Function()? fetchCalendar,
     TResult Function()? fetchDayType,
-    TResult Function(DateTime date)? selectDay,
+    TResult Function(Day day)? selectDay,
     required TResult orElse(),
   }) {
     if (fetchCalendar != null) {
@@ -354,7 +354,7 @@ class _$FetchDayType implements FetchDayType {
     required TResult Function() started,
     required TResult Function() fetchCalendar,
     required TResult Function() fetchDayType,
-    required TResult Function(DateTime date) selectDay,
+    required TResult Function(Day day) selectDay,
   }) {
     return fetchDayType();
   }
@@ -365,7 +365,7 @@ class _$FetchDayType implements FetchDayType {
     TResult? Function()? started,
     TResult? Function()? fetchCalendar,
     TResult? Function()? fetchDayType,
-    TResult? Function(DateTime date)? selectDay,
+    TResult? Function(Day day)? selectDay,
   }) {
     return fetchDayType?.call();
   }
@@ -376,7 +376,7 @@ class _$FetchDayType implements FetchDayType {
     TResult Function()? started,
     TResult Function()? fetchCalendar,
     TResult Function()? fetchDayType,
-    TResult Function(DateTime date)? selectDay,
+    TResult Function(Day day)? selectDay,
     required TResult orElse(),
   }) {
     if (fetchDayType != null) {
@@ -433,7 +433,9 @@ abstract class _$$SelectDayCopyWith<$Res> {
           _$SelectDay value, $Res Function(_$SelectDay) then) =
       __$$SelectDayCopyWithImpl<$Res>;
   @useResult
-  $Res call({DateTime date});
+  $Res call({Day day});
+
+  $DayCopyWith<$Res> get day;
 }
 
 /// @nodoc
@@ -447,28 +449,36 @@ class __$$SelectDayCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = null,
+    Object? day = null,
   }) {
     return _then(_$SelectDay(
-      null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      null == day
+          ? _value.day
+          : day // ignore: cast_nullable_to_non_nullable
+              as Day,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DayCopyWith<$Res> get day {
+    return $DayCopyWith<$Res>(_value.day, (value) {
+      return _then(_value.copyWith(day: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$SelectDay implements SelectDay {
-  const _$SelectDay(this.date);
+  const _$SelectDay(this.day);
 
   @override
-  final DateTime date;
+  final Day day;
 
   @override
   String toString() {
-    return 'TaskCalendarEvent.selectDay(date: $date)';
+    return 'TaskCalendarEvent.selectDay(day: $day)';
   }
 
   @override
@@ -476,11 +486,11 @@ class _$SelectDay implements SelectDay {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelectDay &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.day, day) || other.day == day));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, date);
+  int get hashCode => Object.hash(runtimeType, day);
 
   @JsonKey(ignore: true)
   @override
@@ -494,9 +504,9 @@ class _$SelectDay implements SelectDay {
     required TResult Function() started,
     required TResult Function() fetchCalendar,
     required TResult Function() fetchDayType,
-    required TResult Function(DateTime date) selectDay,
+    required TResult Function(Day day) selectDay,
   }) {
-    return selectDay(date);
+    return selectDay(day);
   }
 
   @override
@@ -505,9 +515,9 @@ class _$SelectDay implements SelectDay {
     TResult? Function()? started,
     TResult? Function()? fetchCalendar,
     TResult? Function()? fetchDayType,
-    TResult? Function(DateTime date)? selectDay,
+    TResult? Function(Day day)? selectDay,
   }) {
-    return selectDay?.call(date);
+    return selectDay?.call(day);
   }
 
   @override
@@ -516,11 +526,11 @@ class _$SelectDay implements SelectDay {
     TResult Function()? started,
     TResult Function()? fetchCalendar,
     TResult Function()? fetchDayType,
-    TResult Function(DateTime date)? selectDay,
+    TResult Function(Day day)? selectDay,
     required TResult orElse(),
   }) {
     if (selectDay != null) {
-      return selectDay(date);
+      return selectDay(day);
     }
     return orElse();
   }
@@ -564,9 +574,9 @@ class _$SelectDay implements SelectDay {
 }
 
 abstract class SelectDay implements TaskCalendarEvent {
-  const factory SelectDay(final DateTime date) = _$SelectDay;
+  const factory SelectDay(final Day day) = _$SelectDay;
 
-  DateTime get date;
+  Day get day;
   @JsonKey(ignore: true)
   _$$SelectDayCopyWith<_$SelectDay> get copyWith =>
       throw _privateConstructorUsedError;
@@ -577,56 +587,80 @@ mixin _$TaskCalendarState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() empty,
-    required TResult Function() loading,
-    required TResult Function(CalendarEntity calendar) loaded,
-    required TResult Function(String message) error,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? empty,
-    TResult? Function()? loading,
-    TResult? Function(CalendarEntity calendar)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? empty,
-    TResult Function()? loading,
-    TResult Function(CalendarEntity calendar)? loaded,
-    TResult Function(String message)? error,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -688,10 +722,14 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() empty,
-    required TResult Function() loading,
-    required TResult Function(CalendarEntity calendar) loaded,
-    required TResult Function(String message) error,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
   }) {
     return initial();
   }
@@ -700,10 +738,14 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? empty,
-    TResult? Function()? loading,
-    TResult? Function(CalendarEntity calendar)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
   }) {
     return initial?.call();
   }
@@ -712,10 +754,14 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? empty,
-    TResult Function()? loading,
-    TResult Function(CalendarEntity calendar)? loaded,
-    TResult Function(String message)? error,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -728,10 +774,14 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
   }) {
     return initial(this);
   }
@@ -740,10 +790,14 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
   }) {
     return initial?.call(this);
   }
@@ -752,10 +806,14 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -770,33 +828,35 @@ abstract class _Initial implements TaskCalendarState {
 }
 
 /// @nodoc
-abstract class _$$EmptyCopyWith<$Res> {
-  factory _$$EmptyCopyWith(_$Empty value, $Res Function(_$Empty) then) =
-      __$$EmptyCopyWithImpl<$Res>;
+abstract class _$$TaskCalendarEmptyCopyWith<$Res> {
+  factory _$$TaskCalendarEmptyCopyWith(
+          _$TaskCalendarEmpty value, $Res Function(_$TaskCalendarEmpty) then) =
+      __$$TaskCalendarEmptyCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmptyCopyWithImpl<$Res>
-    extends _$TaskCalendarStateCopyWithImpl<$Res, _$Empty>
-    implements _$$EmptyCopyWith<$Res> {
-  __$$EmptyCopyWithImpl(_$Empty _value, $Res Function(_$Empty) _then)
+class __$$TaskCalendarEmptyCopyWithImpl<$Res>
+    extends _$TaskCalendarStateCopyWithImpl<$Res, _$TaskCalendarEmpty>
+    implements _$$TaskCalendarEmptyCopyWith<$Res> {
+  __$$TaskCalendarEmptyCopyWithImpl(
+      _$TaskCalendarEmpty _value, $Res Function(_$TaskCalendarEmpty) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Empty implements Empty {
-  const _$Empty();
+class _$TaskCalendarEmpty implements TaskCalendarEmpty {
+  const _$TaskCalendarEmpty();
 
   @override
   String toString() {
-    return 'TaskCalendarState.empty()';
+    return 'TaskCalendarState.calendarEmpty()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Empty);
+        (other.runtimeType == runtimeType && other is _$TaskCalendarEmpty);
   }
 
   @override
@@ -806,38 +866,50 @@ class _$Empty implements Empty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() empty,
-    required TResult Function() loading,
-    required TResult Function(CalendarEntity calendar) loaded,
-    required TResult Function(String message) error,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
   }) {
-    return empty();
+    return calendarEmpty();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? empty,
-    TResult? Function()? loading,
-    TResult? Function(CalendarEntity calendar)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
   }) {
-    return empty?.call();
+    return calendarEmpty?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? empty,
-    TResult Function()? loading,
-    TResult Function(CalendarEntity calendar)? loaded,
-    TResult Function(String message)? error,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
     required TResult orElse(),
   }) {
-    if (empty != null) {
-      return empty();
+    if (calendarEmpty != null) {
+      return calendarEmpty();
     }
     return orElse();
   }
@@ -846,75 +918,89 @@ class _$Empty implements Empty {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
   }) {
-    return empty(this);
+    return calendarEmpty(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
   }) {
-    return empty?.call(this);
+    return calendarEmpty?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
     required TResult orElse(),
   }) {
-    if (empty != null) {
-      return empty(this);
+    if (calendarEmpty != null) {
+      return calendarEmpty(this);
     }
     return orElse();
   }
 }
 
-abstract class Empty implements TaskCalendarState {
-  const factory Empty() = _$Empty;
+abstract class TaskCalendarEmpty implements TaskCalendarState {
+  const factory TaskCalendarEmpty() = _$TaskCalendarEmpty;
 }
 
 /// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
+abstract class _$$TaskCalendarLoadingCopyWith<$Res> {
+  factory _$$TaskCalendarLoadingCopyWith(_$TaskCalendarLoading value,
+          $Res Function(_$TaskCalendarLoading) then) =
+      __$$TaskCalendarLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<$Res>
-    extends _$TaskCalendarStateCopyWithImpl<$Res, _$Loading>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+class __$$TaskCalendarLoadingCopyWithImpl<$Res>
+    extends _$TaskCalendarStateCopyWithImpl<$Res, _$TaskCalendarLoading>
+    implements _$$TaskCalendarLoadingCopyWith<$Res> {
+  __$$TaskCalendarLoadingCopyWithImpl(
+      _$TaskCalendarLoading _value, $Res Function(_$TaskCalendarLoading) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Loading implements Loading {
-  const _$Loading();
+class _$TaskCalendarLoading implements TaskCalendarLoading {
+  const _$TaskCalendarLoading();
 
   @override
   String toString() {
-    return 'TaskCalendarState.loading()';
+    return 'TaskCalendarState.calendarLoading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
+        (other.runtimeType == runtimeType && other is _$TaskCalendarLoading);
   }
 
   @override
@@ -924,38 +1010,50 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() empty,
-    required TResult Function() loading,
-    required TResult Function(CalendarEntity calendar) loaded,
-    required TResult Function(String message) error,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
   }) {
-    return loading();
+    return calendarLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? empty,
-    TResult? Function()? loading,
-    TResult? Function(CalendarEntity calendar)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
   }) {
-    return loading?.call();
+    return calendarLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? empty,
-    TResult Function()? loading,
-    TResult Function(CalendarEntity calendar)? loaded,
-    TResult Function(String message)? error,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading();
+    if (calendarLoading != null) {
+      return calendarLoading();
     }
     return orElse();
   }
@@ -964,51 +1062,64 @@ class _$Loading implements Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
   }) {
-    return loading(this);
+    return calendarLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
   }) {
-    return loading?.call(this);
+    return calendarLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading(this);
+    if (calendarLoading != null) {
+      return calendarLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class Loading implements TaskCalendarState {
-  const factory Loading() = _$Loading;
+abstract class TaskCalendarLoading implements TaskCalendarState {
+  const factory TaskCalendarLoading() = _$TaskCalendarLoading;
 }
 
 /// @nodoc
-abstract class _$$LoadedCopyWith<$Res> {
-  factory _$$LoadedCopyWith(_$Loaded value, $Res Function(_$Loaded) then) =
-      __$$LoadedCopyWithImpl<$Res>;
+abstract class _$$TaskCalendarLoadedCopyWith<$Res> {
+  factory _$$TaskCalendarLoadedCopyWith(_$TaskCalendarLoaded value,
+          $Res Function(_$TaskCalendarLoaded) then) =
+      __$$TaskCalendarLoadedCopyWithImpl<$Res>;
   @useResult
   $Res call({CalendarEntity calendar});
 
@@ -1016,10 +1127,11 @@ abstract class _$$LoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LoadedCopyWithImpl<$Res>
-    extends _$TaskCalendarStateCopyWithImpl<$Res, _$Loaded>
-    implements _$$LoadedCopyWith<$Res> {
-  __$$LoadedCopyWithImpl(_$Loaded _value, $Res Function(_$Loaded) _then)
+class __$$TaskCalendarLoadedCopyWithImpl<$Res>
+    extends _$TaskCalendarStateCopyWithImpl<$Res, _$TaskCalendarLoaded>
+    implements _$$TaskCalendarLoadedCopyWith<$Res> {
+  __$$TaskCalendarLoadedCopyWithImpl(
+      _$TaskCalendarLoaded _value, $Res Function(_$TaskCalendarLoaded) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1027,7 +1139,7 @@ class __$$LoadedCopyWithImpl<$Res>
   $Res call({
     Object? calendar = null,
   }) {
-    return _then(_$Loaded(
+    return _then(_$TaskCalendarLoaded(
       calendar: null == calendar
           ? _value.calendar
           : calendar // ignore: cast_nullable_to_non_nullable
@@ -1046,22 +1158,22 @@ class __$$LoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Loaded implements Loaded {
-  const _$Loaded({required this.calendar});
+class _$TaskCalendarLoaded implements TaskCalendarLoaded {
+  const _$TaskCalendarLoaded({required this.calendar});
 
   @override
   final CalendarEntity calendar;
 
   @override
   String toString() {
-    return 'TaskCalendarState.loaded(calendar: $calendar)';
+    return 'TaskCalendarState.calendarLoaded(calendar: $calendar)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Loaded &&
+            other is _$TaskCalendarLoaded &&
             (identical(other.calendar, calendar) ||
                 other.calendar == calendar));
   }
@@ -1072,45 +1184,58 @@ class _$Loaded implements Loaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadedCopyWith<_$Loaded> get copyWith =>
-      __$$LoadedCopyWithImpl<_$Loaded>(this, _$identity);
+  _$$TaskCalendarLoadedCopyWith<_$TaskCalendarLoaded> get copyWith =>
+      __$$TaskCalendarLoadedCopyWithImpl<_$TaskCalendarLoaded>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() empty,
-    required TResult Function() loading,
-    required TResult Function(CalendarEntity calendar) loaded,
-    required TResult Function(String message) error,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
   }) {
-    return loaded(calendar);
+    return calendarLoaded(calendar);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? empty,
-    TResult? Function()? loading,
-    TResult? Function(CalendarEntity calendar)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
   }) {
-    return loaded?.call(calendar);
+    return calendarLoaded?.call(calendar);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? empty,
-    TResult Function()? loading,
-    TResult Function(CalendarEntity calendar)? loaded,
-    TResult Function(String message)? error,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(calendar);
+    if (calendarLoaded != null) {
+      return calendarLoaded(calendar);
     }
     return orElse();
   }
@@ -1119,65 +1244,80 @@ class _$Loaded implements Loaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
   }) {
-    return loaded(this);
+    return calendarLoaded(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
   }) {
-    return loaded?.call(this);
+    return calendarLoaded?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (calendarLoaded != null) {
+      return calendarLoaded(this);
     }
     return orElse();
   }
 }
 
-abstract class Loaded implements TaskCalendarState {
-  const factory Loaded({required final CalendarEntity calendar}) = _$Loaded;
+abstract class TaskCalendarLoaded implements TaskCalendarState {
+  const factory TaskCalendarLoaded({required final CalendarEntity calendar}) =
+      _$TaskCalendarLoaded;
 
   CalendarEntity get calendar;
   @JsonKey(ignore: true)
-  _$$LoadedCopyWith<_$Loaded> get copyWith =>
+  _$$TaskCalendarLoadedCopyWith<_$TaskCalendarLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+abstract class _$$TaskCalendarErrorCopyWith<$Res> {
+  factory _$$TaskCalendarErrorCopyWith(
+          _$TaskCalendarError value, $Res Function(_$TaskCalendarError) then) =
+      __$$TaskCalendarErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res>
-    extends _$TaskCalendarStateCopyWithImpl<$Res, _$Error>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+class __$$TaskCalendarErrorCopyWithImpl<$Res>
+    extends _$TaskCalendarStateCopyWithImpl<$Res, _$TaskCalendarError>
+    implements _$$TaskCalendarErrorCopyWith<$Res> {
+  __$$TaskCalendarErrorCopyWithImpl(
+      _$TaskCalendarError _value, $Res Function(_$TaskCalendarError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1185,7 +1325,7 @@ class __$$ErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$Error(
+    return _then(_$TaskCalendarError(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1196,22 +1336,22 @@ class __$$ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Error implements Error {
-  const _$Error({required this.message});
+class _$TaskCalendarError implements TaskCalendarError {
+  const _$TaskCalendarError({required this.message});
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'TaskCalendarState.error(message: $message)';
+    return 'TaskCalendarState.calendarError(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Error &&
+            other is _$TaskCalendarError &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1221,45 +1361,57 @@ class _$Error implements Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorCopyWith<_$Error> get copyWith =>
-      __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
+  _$$TaskCalendarErrorCopyWith<_$TaskCalendarError> get copyWith =>
+      __$$TaskCalendarErrorCopyWithImpl<_$TaskCalendarError>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() empty,
-    required TResult Function() loading,
-    required TResult Function(CalendarEntity calendar) loaded,
-    required TResult Function(String message) error,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
   }) {
-    return error(message);
+    return calendarError(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? empty,
-    TResult? Function()? loading,
-    TResult? Function(CalendarEntity calendar)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
   }) {
-    return error?.call(message);
+    return calendarError?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? empty,
-    TResult Function()? loading,
-    TResult Function(CalendarEntity calendar)? loaded,
-    TResult Function(String message)? error,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(message);
+    if (calendarError != null) {
+      return calendarError(message);
     }
     return orElse();
   }
@@ -1268,47 +1420,718 @@ class _$Error implements Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Error value) error,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
   }) {
-    return error(this);
+    return calendarError(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Error value)? error,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
   }) {
-    return error?.call(this);
+    return calendarError?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(Empty value)? empty,
-    TResult Function(Loading value)? loading,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Error value)? error,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (calendarError != null) {
+      return calendarError(this);
     }
     return orElse();
   }
 }
 
-abstract class Error implements TaskCalendarState {
-  const factory Error({required final String message}) = _$Error;
+abstract class TaskCalendarError implements TaskCalendarState {
+  const factory TaskCalendarError({required final String message}) =
+      _$TaskCalendarError;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$ErrorCopyWith<_$Error> get copyWith => throw _privateConstructorUsedError;
+  _$$TaskCalendarErrorCopyWith<_$TaskCalendarError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TaskCalendarDayTypeEmptyCopyWith<$Res> {
+  factory _$$TaskCalendarDayTypeEmptyCopyWith(_$TaskCalendarDayTypeEmpty value,
+          $Res Function(_$TaskCalendarDayTypeEmpty) then) =
+      __$$TaskCalendarDayTypeEmptyCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TaskCalendarDayTypeEmptyCopyWithImpl<$Res>
+    extends _$TaskCalendarStateCopyWithImpl<$Res, _$TaskCalendarDayTypeEmpty>
+    implements _$$TaskCalendarDayTypeEmptyCopyWith<$Res> {
+  __$$TaskCalendarDayTypeEmptyCopyWithImpl(_$TaskCalendarDayTypeEmpty _value,
+      $Res Function(_$TaskCalendarDayTypeEmpty) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$TaskCalendarDayTypeEmpty implements TaskCalendarDayTypeEmpty {
+  const _$TaskCalendarDayTypeEmpty();
+
+  @override
+  String toString() {
+    return 'TaskCalendarState.dayTypeEmpty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TaskCalendarDayTypeEmpty);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
+  }) {
+    return dayTypeEmpty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
+  }) {
+    return dayTypeEmpty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
+    required TResult orElse(),
+  }) {
+    if (dayTypeEmpty != null) {
+      return dayTypeEmpty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
+  }) {
+    return dayTypeEmpty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
+  }) {
+    return dayTypeEmpty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
+    required TResult orElse(),
+  }) {
+    if (dayTypeEmpty != null) {
+      return dayTypeEmpty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TaskCalendarDayTypeEmpty implements TaskCalendarState {
+  const factory TaskCalendarDayTypeEmpty() = _$TaskCalendarDayTypeEmpty;
+}
+
+/// @nodoc
+abstract class _$$TaskCalendarDayTypeLoadingCopyWith<$Res> {
+  factory _$$TaskCalendarDayTypeLoadingCopyWith(
+          _$TaskCalendarDayTypeLoading value,
+          $Res Function(_$TaskCalendarDayTypeLoading) then) =
+      __$$TaskCalendarDayTypeLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TaskCalendarDayTypeLoadingCopyWithImpl<$Res>
+    extends _$TaskCalendarStateCopyWithImpl<$Res, _$TaskCalendarDayTypeLoading>
+    implements _$$TaskCalendarDayTypeLoadingCopyWith<$Res> {
+  __$$TaskCalendarDayTypeLoadingCopyWithImpl(
+      _$TaskCalendarDayTypeLoading _value,
+      $Res Function(_$TaskCalendarDayTypeLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$TaskCalendarDayTypeLoading implements TaskCalendarDayTypeLoading {
+  const _$TaskCalendarDayTypeLoading();
+
+  @override
+  String toString() {
+    return 'TaskCalendarState.dayTypeLoading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TaskCalendarDayTypeLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
+  }) {
+    return dayTypeLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
+  }) {
+    return dayTypeLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
+    required TResult orElse(),
+  }) {
+    if (dayTypeLoading != null) {
+      return dayTypeLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
+  }) {
+    return dayTypeLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
+  }) {
+    return dayTypeLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
+    required TResult orElse(),
+  }) {
+    if (dayTypeLoading != null) {
+      return dayTypeLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TaskCalendarDayTypeLoading implements TaskCalendarState {
+  const factory TaskCalendarDayTypeLoading() = _$TaskCalendarDayTypeLoading;
+}
+
+/// @nodoc
+abstract class _$$TaskCalendarDayTypeLoadedCopyWith<$Res> {
+  factory _$$TaskCalendarDayTypeLoadedCopyWith(
+          _$TaskCalendarDayTypeLoaded value,
+          $Res Function(_$TaskCalendarDayTypeLoaded) then) =
+      __$$TaskCalendarDayTypeLoadedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<DayTypeEntity> dayTypes});
+}
+
+/// @nodoc
+class __$$TaskCalendarDayTypeLoadedCopyWithImpl<$Res>
+    extends _$TaskCalendarStateCopyWithImpl<$Res, _$TaskCalendarDayTypeLoaded>
+    implements _$$TaskCalendarDayTypeLoadedCopyWith<$Res> {
+  __$$TaskCalendarDayTypeLoadedCopyWithImpl(_$TaskCalendarDayTypeLoaded _value,
+      $Res Function(_$TaskCalendarDayTypeLoaded) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dayTypes = null,
+  }) {
+    return _then(_$TaskCalendarDayTypeLoaded(
+      dayTypes: null == dayTypes
+          ? _value._dayTypes
+          : dayTypes // ignore: cast_nullable_to_non_nullable
+              as List<DayTypeEntity>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TaskCalendarDayTypeLoaded implements TaskCalendarDayTypeLoaded {
+  const _$TaskCalendarDayTypeLoaded(
+      {required final List<DayTypeEntity> dayTypes})
+      : _dayTypes = dayTypes;
+
+  final List<DayTypeEntity> _dayTypes;
+  @override
+  List<DayTypeEntity> get dayTypes {
+    if (_dayTypes is EqualUnmodifiableListView) return _dayTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dayTypes);
+  }
+
+  @override
+  String toString() {
+    return 'TaskCalendarState.dayTypeLoaded(dayTypes: $dayTypes)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TaskCalendarDayTypeLoaded &&
+            const DeepCollectionEquality().equals(other._dayTypes, _dayTypes));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_dayTypes));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TaskCalendarDayTypeLoadedCopyWith<_$TaskCalendarDayTypeLoaded>
+      get copyWith => __$$TaskCalendarDayTypeLoadedCopyWithImpl<
+          _$TaskCalendarDayTypeLoaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
+  }) {
+    return dayTypeLoaded(dayTypes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
+  }) {
+    return dayTypeLoaded?.call(dayTypes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
+    required TResult orElse(),
+  }) {
+    if (dayTypeLoaded != null) {
+      return dayTypeLoaded(dayTypes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
+  }) {
+    return dayTypeLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
+  }) {
+    return dayTypeLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
+    required TResult orElse(),
+  }) {
+    if (dayTypeLoaded != null) {
+      return dayTypeLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TaskCalendarDayTypeLoaded implements TaskCalendarState {
+  const factory TaskCalendarDayTypeLoaded(
+          {required final List<DayTypeEntity> dayTypes}) =
+      _$TaskCalendarDayTypeLoaded;
+
+  List<DayTypeEntity> get dayTypes;
+  @JsonKey(ignore: true)
+  _$$TaskCalendarDayTypeLoadedCopyWith<_$TaskCalendarDayTypeLoaded>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TaskCalendarDayTypeErrorCopyWith<$Res> {
+  factory _$$TaskCalendarDayTypeErrorCopyWith(_$TaskCalendarDayTypeError value,
+          $Res Function(_$TaskCalendarDayTypeError) then) =
+      __$$TaskCalendarDayTypeErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$TaskCalendarDayTypeErrorCopyWithImpl<$Res>
+    extends _$TaskCalendarStateCopyWithImpl<$Res, _$TaskCalendarDayTypeError>
+    implements _$$TaskCalendarDayTypeErrorCopyWith<$Res> {
+  __$$TaskCalendarDayTypeErrorCopyWithImpl(_$TaskCalendarDayTypeError _value,
+      $Res Function(_$TaskCalendarDayTypeError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$TaskCalendarDayTypeError(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TaskCalendarDayTypeError implements TaskCalendarDayTypeError {
+  const _$TaskCalendarDayTypeError({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'TaskCalendarState.dayTypeError(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TaskCalendarDayTypeError &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TaskCalendarDayTypeErrorCopyWith<_$TaskCalendarDayTypeError>
+      get copyWith =>
+          __$$TaskCalendarDayTypeErrorCopyWithImpl<_$TaskCalendarDayTypeError>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() calendarEmpty,
+    required TResult Function() calendarLoading,
+    required TResult Function(CalendarEntity calendar) calendarLoaded,
+    required TResult Function(String message) calendarError,
+    required TResult Function() dayTypeEmpty,
+    required TResult Function() dayTypeLoading,
+    required TResult Function(List<DayTypeEntity> dayTypes) dayTypeLoaded,
+    required TResult Function(String message) dayTypeError,
+  }) {
+    return dayTypeError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? calendarEmpty,
+    TResult? Function()? calendarLoading,
+    TResult? Function(CalendarEntity calendar)? calendarLoaded,
+    TResult? Function(String message)? calendarError,
+    TResult? Function()? dayTypeEmpty,
+    TResult? Function()? dayTypeLoading,
+    TResult? Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult? Function(String message)? dayTypeError,
+  }) {
+    return dayTypeError?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? calendarEmpty,
+    TResult Function()? calendarLoading,
+    TResult Function(CalendarEntity calendar)? calendarLoaded,
+    TResult Function(String message)? calendarError,
+    TResult Function()? dayTypeEmpty,
+    TResult Function()? dayTypeLoading,
+    TResult Function(List<DayTypeEntity> dayTypes)? dayTypeLoaded,
+    TResult Function(String message)? dayTypeError,
+    required TResult orElse(),
+  }) {
+    if (dayTypeError != null) {
+      return dayTypeError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(TaskCalendarEmpty value) calendarEmpty,
+    required TResult Function(TaskCalendarLoading value) calendarLoading,
+    required TResult Function(TaskCalendarLoaded value) calendarLoaded,
+    required TResult Function(TaskCalendarError value) calendarError,
+    required TResult Function(TaskCalendarDayTypeEmpty value) dayTypeEmpty,
+    required TResult Function(TaskCalendarDayTypeLoading value) dayTypeLoading,
+    required TResult Function(TaskCalendarDayTypeLoaded value) dayTypeLoaded,
+    required TResult Function(TaskCalendarDayTypeError value) dayTypeError,
+  }) {
+    return dayTypeError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult? Function(TaskCalendarLoading value)? calendarLoading,
+    TResult? Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult? Function(TaskCalendarError value)? calendarError,
+    TResult? Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult? Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult? Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult? Function(TaskCalendarDayTypeError value)? dayTypeError,
+  }) {
+    return dayTypeError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(TaskCalendarEmpty value)? calendarEmpty,
+    TResult Function(TaskCalendarLoading value)? calendarLoading,
+    TResult Function(TaskCalendarLoaded value)? calendarLoaded,
+    TResult Function(TaskCalendarError value)? calendarError,
+    TResult Function(TaskCalendarDayTypeEmpty value)? dayTypeEmpty,
+    TResult Function(TaskCalendarDayTypeLoading value)? dayTypeLoading,
+    TResult Function(TaskCalendarDayTypeLoaded value)? dayTypeLoaded,
+    TResult Function(TaskCalendarDayTypeError value)? dayTypeError,
+    required TResult orElse(),
+  }) {
+    if (dayTypeError != null) {
+      return dayTypeError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TaskCalendarDayTypeError implements TaskCalendarState {
+  const factory TaskCalendarDayTypeError({required final String message}) =
+      _$TaskCalendarDayTypeError;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$TaskCalendarDayTypeErrorCopyWith<_$TaskCalendarDayTypeError>
+      get copyWith => throw _privateConstructorUsedError;
 }

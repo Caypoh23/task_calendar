@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:task_calendar/config/formatters/date_formatter.dart';
 
 // Project imports:
 import 'app.dart';
@@ -16,6 +17,8 @@ void main() async {
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(MySystemUiOverlayStyle.splash);
+
+  MyDateFormatter.init();
 
   await MySPHelper.init();
 

@@ -1,9 +1,3 @@
-// Dart imports:
-import 'dart:convert';
-
-// Flutter imports:
-import 'package:flutter/foundation.dart';
-
 // Package imports:
 import 'package:injectable/injectable.dart';
 
@@ -17,7 +11,7 @@ import 'package:task_calendar/features/task_calendar/data/models/day_type/day_ty
 
 abstract class TaskCalendarRemoteDataSource {
   Future<Calendar> fetchCalendar();
-  Future<DayType> fetchDayType();
+  Future<List<DayType>> fetchDayTypes();
 }
 
 @LazySingleton(as: TaskCalendarRemoteDataSource)
@@ -30,7 +24,6 @@ class TaskCalendarRemoteDataSourceImpl implements TaskCalendarRemoteDataSource {
     final response = await dioClient.dio.get(ApiUrls.calendar);
 
     if (response.statusCode == 200) {
-      debugPrint(response.data.toString());
       return Calendar.fromJson(response.data);
     } else {
       throw ServerException();
@@ -38,12 +31,12 @@ class TaskCalendarRemoteDataSourceImpl implements TaskCalendarRemoteDataSource {
   }
 
   @override
-  Future<DayType> fetchDayType() async {
+  Future<List<DayType>> fetchDayTypes() async {
     final response = await dioClient.dio.get(ApiUrls.dayTypes);
 
     if (response.statusCode == 200) {
-      debugPrint(response.data.toString());
-      return DayType.fromJson(json.decode(response.data));
+      final List<dynamic> jsonData = response.data;
+      return jsonData.map((data) => DayType.fromJson(data)).toList();
     } else {
       throw ServerException();
     }

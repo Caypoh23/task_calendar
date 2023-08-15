@@ -4,12 +4,31 @@ part of 'task_calendar_bloc.dart';
 class TaskCalendarState with _$TaskCalendarState {
   const factory TaskCalendarState.initial() = _Initial;
 
-  const factory TaskCalendarState.empty() = Empty;
+  ///
+  /// Calendar
+  ///
 
-  const factory TaskCalendarState.loading() = Loading;
+  const factory TaskCalendarState.calendarEmpty() = TaskCalendarEmpty;
 
-  const factory TaskCalendarState.loaded({required CalendarEntity calendar}) =
-      Loaded;
+  const factory TaskCalendarState.calendarLoading() = TaskCalendarLoading;
 
-  const factory TaskCalendarState.error({required String message}) = Error;
+  const factory TaskCalendarState.calendarLoaded(
+      {required CalendarEntity calendar}) = TaskCalendarLoaded;
+
+  const factory TaskCalendarState.calendarError({required String message}) =
+      TaskCalendarError;
+
+  ///
+  /// DayType
+  ///
+
+  const factory TaskCalendarState.dayTypeEmpty() = TaskCalendarDayTypeEmpty;
+
+  const factory TaskCalendarState.dayTypeLoading() = TaskCalendarDayTypeLoading;
+
+  const factory TaskCalendarState.dayTypeLoaded(
+      {required List<DayTypeEntity> dayTypes}) = TaskCalendarDayTypeLoaded;
+
+  const factory TaskCalendarState.dayTypeError({required String message}) =
+      TaskCalendarDayTypeError;
 }

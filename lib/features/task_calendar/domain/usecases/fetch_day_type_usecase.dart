@@ -9,14 +9,14 @@ import 'package:task_calendar/features/task_calendar/domain/entities/day_type_en
 import 'package:task_calendar/features/task_calendar/domain/repositories/taks_calendar_repository.dart';
 
 @lazySingleton
-class FetchDayTypeUseCase extends UseCase<DayTypeEntity, NoParams> {
+class FetchDayTypeUseCase extends UseCase<List<DayTypeEntity>, NoParams> {
   //
   final TaskCalendarRepository repository;
 
   FetchDayTypeUseCase(this.repository);
 
   @override
-  Future<Either<Failure, DayTypeEntity>> call(NoParams params) async {
+  Future<Either<Failure, List<DayTypeEntity>>> call(NoParams params) async {
     return await repository.fetchDayType();
   }
 }

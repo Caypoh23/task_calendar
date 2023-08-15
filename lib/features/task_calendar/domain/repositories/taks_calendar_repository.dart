@@ -8,5 +8,5 @@ import 'package:task_calendar/features/task_calendar/domain/entities/day_type_en
 
 abstract class TaskCalendarRepository {
   Future<Either<Failure, CalendarEntity>> fetchCalendar();
-  Future<Either<Failure, DayTypeEntity>> fetchDayType();
+  Future<Either<Failure, List<DayTypeEntity>>> fetchDayType();
 }

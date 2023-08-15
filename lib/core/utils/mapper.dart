@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:json_annotation/json_annotation.dart';
+
+// Project imports:
 import 'package:task_calendar/features/task_calendar/data/models/day_type/day_type.dart';
 
 class DayTypeConverter implements JsonConverter<DayType, int> {
